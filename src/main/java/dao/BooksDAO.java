@@ -6,7 +6,6 @@ import javax.persistence.TypedQuery;
 
 import entities.Books;
 import lombok.extern.slf4j.Slf4j;
-
 @Slf4j
 public class BooksDAO {
 	private final EntityManager em;

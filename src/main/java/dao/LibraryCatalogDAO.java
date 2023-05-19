@@ -70,4 +70,3 @@ public class LibraryCatalogDAO {
 		return query.getSingleResult();
 	}
 }
-	

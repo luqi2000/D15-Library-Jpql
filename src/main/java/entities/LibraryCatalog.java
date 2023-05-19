@@ -27,7 +27,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public abstract class LibraryCatalog {
-	
 
 	@Id
 	@GeneratedValue

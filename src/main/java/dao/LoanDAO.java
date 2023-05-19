@@ -11,7 +11,6 @@ public class LoanDAO {
 	public LoanDAO(EntityManager em) {
 		this.em = em;
 	}
-	
 	//method save
 	public void save(Loan l) {
 		EntityTransaction transaction = em.getTransaction();

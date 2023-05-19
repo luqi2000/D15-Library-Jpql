@@ -26,7 +26,6 @@ public class Loan {
 	private LocalDate expecteddatareturnloan;
 	private LocalDate effectivereturndate;
 	
-	
 	@ManyToOne
 	@JoinColumn(name = "user_id")// set the name of the fk anyway default was aswell user_id
 	private User user;

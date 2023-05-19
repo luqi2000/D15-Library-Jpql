@@ -17,7 +17,6 @@ import lombok.ToString;
 @ToString
 public class Magazines extends LibraryCatalog{
 	private Periods period;
-	
 
 	public Magazines(String title, int yearpublication, int pagenumber, Periods period) {
 		super(title, yearpublication, pagenumber);
