@@ -22,7 +22,7 @@ public class LibraryCatalogDAO {
 		transaction.begin();//the operations that I want to do in the database starting
 		em.persist(n);//it will save in the database what I pass
 		transaction.commit();//terminate the transaction and flush the object
-		log.info("catalogo salvato");
+		log.info("Catalog saved");
 	}
 	
 	//method getByid
@@ -44,10 +44,18 @@ public class LibraryCatalogDAO {
 			transaction.begin();
 			em.remove(found);
 			transaction.commit();
-			System.out.println(id + "Succesfull deleted");
+			log.info(id + "Succesfull deleted");
 		}else {
-			System.out.println("id not found");
+			log.info("id not found");
 		}
 	}
+	
+	//find by Year of pubblication
+	public LibraryCatalog findByYearPubblication(int yearpublication){
+		TypedQuery<LibraryCatalog> query = em.createNamedQuery("LibraryCatalog.findByYearPubblication", LibraryCatalog.class)
+	        .setParameter("yearpublication", yearpublication);
+		return query.getSingleResult();
+	}
+	
 }
 	

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +18,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
+@NamedQuery(name = "LibraryCatalog.findByYearPubblication", query = "SELECT l FROM LibraryCatalog l WHERE l.yearpublication = :yearpublication")
 @Table(name = "libray_catalog")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
@@ -25,30 +27,30 @@ import lombok.ToString;
 @ToString
 public abstract class LibraryCatalog {
 	
-	//Attribute
+
 	@Id
 	@GeneratedValue
 	private UUID id;
 	protected String title;
-	protected int yearPublication;
-	protected int pageNumber;
+	protected int yearpublication;
+	protected int pagenumber;
 	
 	@OneToMany(mappedBy = "loancatalog")
 	private List<Loan> loan;
 	
 	//costructor
 	
-	public LibraryCatalog(String title, int yearPublication, int pageNumber) {
+	public LibraryCatalog(String title, int yearpublication, int pagenumber) {
 		super();
 		this.title = title;
-		this.yearPublication = yearPublication;
-		this.pageNumber = pageNumber;
+		this.yearpublication = yearpublication;
+		this.pagenumber = pagenumber;
 	}
-	public LibraryCatalog(String title, int yearPublication, int pageNumber, List<Loan> loan) {
+	public LibraryCatalog(String title, int yearpublication, int pagenumber, List<Loan> loan) {
 		super();
 		this.title = title;
-		this.yearPublication = yearPublication;
-		this.pageNumber = pageNumber;
+		this.yearpublication = yearpublication;
+		this.pagenumber = pagenumber;
 		this.loan = loan;
 	}
 }

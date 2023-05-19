@@ -27,12 +27,12 @@ public class User {
 	private String name;
 	private String surname;
 	private LocalDate dateofbirth;
-	private long cardnumber;
+	private int cardnumber;
 	
 	@OneToMany(mappedBy = "user") //the mappedBy refers to the property of the parent object
 	private List<Loan> loan; //loan is the secondary object
 	
-	public User(String name, String surname, LocalDate dateofbirth, long cardnumber) {
+	public User(String name, String surname, LocalDate dateofbirth, int cardnumber) {
 		super();
 		this.name = name;
 		this.surname = surname;

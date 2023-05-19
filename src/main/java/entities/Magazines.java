@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.Entity;
+
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -18,8 +19,8 @@ public class Magazines extends LibraryCatalog{
 	private Periods period;
 	
 
-	public Magazines(String title, int yearPublication, int pageNumber, Periods period) {
-		super(title, yearPublication, pageNumber);
+	public Magazines(String title, int yearpublication, int pagenumber, Periods period) {
+		super(title, yearpublication, pagenumber);
 		this.period = period;
 	}	
 }

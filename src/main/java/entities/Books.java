@@ -19,8 +19,8 @@ public class Books extends LibraryCatalog{
 	 String genre;
 	 
 	 //costructor
-	public Books(String title, int yearPublication, int pageNumber, String author, String genre) {
-		super( title, yearPublication, pageNumber);
+	public Books(String title, int yearpublication, int pagenumber, String author, String genre) {
+		super( title, yearpublication, pagenumber);
 		this.author = author;
 		this.genre = genre;
 	}
