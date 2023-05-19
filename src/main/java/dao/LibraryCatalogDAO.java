@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
+import entities.Books;
 import entities.LibraryCatalog;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
@@ -57,5 +58,16 @@ public class LibraryCatalogDAO {
 		return query.getSingleResult();
 	}
 	
+	public Books findByAuthor(String author){
+		TypedQuery<Books> query = em.createNamedQuery("Books.findByAuthor" , Books.class);
+		query.setParameter("author", author);
+		return query.getSingleResult();
+	}
+	
+	public LibraryCatalog findByTitle(String title) {
+		TypedQuery<LibraryCatalog> query = em.createNamedQuery("LibraryCatalog.findByTitle", LibraryCatalog.class);
+		query.setParameter("title", title);
+		return query.getSingleResult();
+	}
 }
 	

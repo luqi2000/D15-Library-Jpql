@@ -2,6 +2,8 @@ package dao;
 import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+
 import entities.Books;
 import lombok.extern.slf4j.Slf4j;
 
@@ -45,5 +47,12 @@ public class BooksDAO {
 		}else {
 			log.info("id not found");
 		}
+	}
+	
+	//search by Author
+	public Books findByAuthor(String author){
+		TypedQuery<Books> query = em.createNamedQuery("Books.findByAuthor" , Books.class);
+		query.setParameter("author", author);
+		return query.getSingleResult();
 	}
 }

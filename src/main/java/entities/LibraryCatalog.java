@@ -19,6 +19,7 @@ import lombok.ToString;
 
 @Entity
 @NamedQuery(name = "LibraryCatalog.findByYearPubblication", query = "SELECT l FROM LibraryCatalog l WHERE l.yearpublication = :yearpublication")
+@NamedQuery(name = "LibraryCatalog.findByTitle", query = "SELECT t FROM LibraryCatalog t WHERE t.title LIKE CONCAT('%', :title, '%')")
 @Table(name = "libray_catalog")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
@@ -45,12 +46,5 @@ public abstract class LibraryCatalog {
 		this.title = title;
 		this.yearpublication = yearpublication;
 		this.pagenumber = pagenumber;
-	}
-	public LibraryCatalog(String title, int yearpublication, int pagenumber, List<Loan> loan) {
-		super();
-		this.title = title;
-		this.yearpublication = yearpublication;
-		this.pagenumber = pagenumber;
-		this.loan = loan;
 	}
 }

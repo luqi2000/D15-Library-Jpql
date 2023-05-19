@@ -33,6 +33,10 @@ public class Application {
 		Books first = new Books("all the light we cannot see", 1999, 206, "Anthony Doerr", "romance");
 		//bd.save(first);
 		
+		//another book
+		Books second = new Books("The mind of the leader", 2005, 243, "elon mask", "technology");
+		//bd.save(second);
+		
 		//added magazines in magazines (table) and catalog (table) automatically thanks to pk and fk ->strategy: JOINED from LIbraryCatalog
 		MagazinesDAO mz = new MagazinesDAO(em);
 		Magazines firstmag= new Magazines("lord of asperity", 2005, 59, Periods.monthly);
@@ -43,15 +47,18 @@ public class Application {
 		//mz.save(secondmag);
 		
 		//find by Id
-		mz.getById("af9d0fa6-dd7c-45fa-bf08-d972197b6885");
+		mz.getById("4dd7daef-960f-49f1-bef6-70fa5e6f8148");
 		
 		//find & delete by Id
 		mz.FindAndDelete("cd9ef77a-20b5-4edd-83c5-03bf2146e531"); //already cancel 1 time so next time when you run you will not find the id
 		
 		//search per year of publications
 		LibraryCatalogDAO lc = new LibraryCatalogDAO(em);
-		log.info(lc.findByYearPubblication(1999).toString());
+		log.info(lc.findByYearPubblication(2010).toString());
 		
+		//search by Author from books
+		log.info(bd.findByAuthor("Anthony Doerr").toString());
+		log.info(lc.findByTitle("gentleman").toString());
 		
 	}
 
